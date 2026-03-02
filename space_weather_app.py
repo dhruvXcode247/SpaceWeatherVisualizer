@@ -8,7 +8,10 @@ import os
 
 # Load environment variables
 load_dotenv()
-API_KEY = os.getenv("NASA_API_KEY")
+try:
+    API_KEY = st.secrets["NASA_API_KEY"]
+except:
+    API_KEY = os.getenv("NASA_API_KEY")
 
 # Check if API key is present
 if not API_KEY:
